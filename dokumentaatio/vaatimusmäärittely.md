@@ -41,4 +41,4 @@ D-ary keon aikavaativuudet:
 Tämä suoritus on osa tietojenkäsittelytieteen kanditaattia (TKT).
 
 ## Kielivalinnat
-Suomi, mutta englanniksi koodi, kommentit ja koodin dokumentointi (onko tämä hyväksyttyä?).
+Suomi, mutta englanniksi koodi, kommentit ja koodin dokumentointi.
