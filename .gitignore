@@ -1,1 +1,29 @@
 .DS_Store
+# väliaikaiset C++ tiedostot
+*.o
+*.d
+*.exe
+*.out
+*.so
+*.obj
+*.dll
+*.a
+*.lib
+
+# CMake väliaikaiset
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# käännöksen aikana luodut binäärit ja kirjastot
+*/build/
+*/out/
+*.sdf
+*.opendb
+*.user
+*.userprefs
+
+# piilotetut hakemistot ja tiedostot
+.*
+!/.gitignore
