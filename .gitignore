@@ -25,5 +25,4 @@ Makefile
 *.userprefs
 
 # piilotetut hakemistot ja tiedostot
-.*
 !/.gitignore
