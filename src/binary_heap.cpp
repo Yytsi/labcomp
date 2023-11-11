@@ -1,4 +1,5 @@
 #include "../include/binary_heap.hpp"
+#include <stdexcept>
 
 using namespace std;
 
