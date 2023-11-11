@@ -2,11 +2,11 @@
 
 using namespace std;
 
-// using a standard implementation, will switch to pointers later
+// Using a standard implementation, will switch to pointers later
 
 void BinaryHeap::insert(int val) {
   heap.push_back(val);
-  heapifyUp(heap.size() - 1);
+  heapifyUp(heap.size() - 1); // Guarantee heap structure
 }
 
 int BinaryHeap::getMinimum() {
@@ -18,15 +18,18 @@ void BinaryHeap::deleteMinimum() {
   if (heap.empty()) throw runtime_error("Tyhjästä keosta poisto.");
   heap[0] = heap.back();
   heap.pop_back();
-  if (heap.size()) heapifyDown(0);
+  if (heap.size()) heapifyDown(0); // Guarantee heap structure by heapifying down from root
 }
 
 void BinaryHeap::heapifyDown(int idx) {
   // find smallest children and swap with it if necessary
   int smallest = idx;
 
-  if (2*idx+1 < (int)heap.size() && heap[2*idx+1] < heap[smallest]) smallest = 2*idx+1;
-  if (2*idx+2 < (int)heap.size() && heap[2*idx+2] < heap[smallest]) smallest = 2*idx+2;
+  int leftChild = 2*idx+1;
+  int rightChild = 2*idx+2;
+
+  if (leftChild < (int)heap.size() && heap[leftChild] < heap[smallest]) smallest = leftChild;
+  if (rightChild < (int)heap.size() && heap[rightChild] < heap[smallest]) smallest = rightChild;
 
   if (idx < smallest) {
     swap(heap[idx], heap[smallest]);
@@ -35,7 +38,7 @@ void BinaryHeap::heapifyDown(int idx) {
 }
 
 void BinaryHeap::heapifyUp(int idx) {
-  // as long as parent is bigger than this, swap with it
+  // As long as parent is bigger than this, swap with it
   while (idx && heap[idx] < heap[(idx - 1) / 2]) {
     swap(heap[idx], heap[(idx - 1) / 2]);
     idx = (idx - 1) / 2;
