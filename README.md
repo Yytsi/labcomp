@@ -4,6 +4,8 @@
 
 [Käyttöohje](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/kaytto-ohje.md)
 
+[Toteutusdokumentti](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/toteutusdokumentti.md)
+
 ## Viikkoraportit
 [Viikkoraportti 1](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti1.md)
 
