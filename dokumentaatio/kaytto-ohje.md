@@ -4,7 +4,8 @@ Aluksi kloonaa repositorio `git clone` komennolla ja mene sen sisään
 
 Asenna riippuvuudet:
 ```
-sudo apt-get install cmake libgtest-dev gcovr lcov
+sudo apt-get update
+sudo apt-get install cmake g++ libgtest-dev python3-pip
 ```
 
 Joissakin tapauksissa GTest vaatii manuaalisen kokoamisen. Se menee näin:
@@ -15,23 +16,27 @@ sudo make
 sudo cp *.a /usr/lib
 ```
 
-Kokoa projekti:
+Asenna gcovr:
 ```
-cmake .
+pip3 install gcovr
+```
+
+Rakenna ja käännä testit:
+```
+cmake -DCMAKE_BUILD_TYPE=Debug .
 make
 ```
 
 Suorita testit:
 ```
-make test
+./runUnitTests
 ```
 
 Luo kattavuusreportti:
 ```
-lcov --capture --directory . --output-file coverage.info
-lcov --remove coverage.info '/usr/*' --output-file coverage.info
-lcov --list coverage.info
-genhtml coverage.info --output-directory out
+gcovr -r . --html --html-details -o coverage.html
 ```
 
-Huom. Valitettavasti en ole testannut linuxilla (itse käytän macia). Korjaan tätä myöhemmin tarvittaessa.
+Avaa coverage.html tiedosto.
+
+Huom. Valitettavasti en ole vielä testannut linuxilla (itse käytän macia), mutta pitäisi toimia. Korjaan tätä myöhemmin tarvittaessa.
