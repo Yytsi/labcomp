@@ -4,14 +4,13 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
     - name: Install dependencies
-      run: sudo apt-get install -y lcov cmake g++ python3-pip
+      run: sudo apt-get install -y cmake g++ python3-pip
 
     - name: Download and Install Google Test
       run: |
@@ -30,11 +29,11 @@ jobs:
         make
         make test
 
-    - name: Generate Coverage Report
-      run: gcovr -r . --html --html-details -o coverage.html
+    - name: Generate Coverage Report for Codecov
+      run: gcovr -r . --xml -o coverage.xml
 
-    - name: Upload Coverage Report
-      uses: actions/upload-artifact@v2
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v2
       with:
-        name: code-coverage-report
-        path: coverage.html
+        file: ./coverage.xml
+        fail_ci_if_error: true
