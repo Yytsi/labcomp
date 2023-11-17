@@ -32,6 +32,16 @@ Suorita testit:
 ./runUnitTests
 ```
 
+Jos saat virheen äskeisestä, niin poista .gcda tiedostot projektista (varmista, että olet projektin juurikansiossa!):
+```
+find . -name "*.gcda" -delete
+```
+
+Jos äskeinen ei toimi tai muuten vain haluaa nähdä että kaikki testit ylipäätään menee läpi:
+```
+make test
+```
+
 Luo kattavuusreportti:
 ```
 gcovr -r . --html --html-details -o coverage.html
