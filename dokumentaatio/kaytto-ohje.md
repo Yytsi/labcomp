@@ -1,5 +1,7 @@
 # Käyttöohje
 
+## Testien suorittaminen
+
 Aluksi kloonaa repositorio `git clone` komennolla ja mene sen sisään
 
 Asenna riippuvuudet:
@@ -48,5 +50,28 @@ gcovr -r . --html --html-details -o coverage.html
 ```
 
 Avaa coverage.html tiedosto.
+
+## Koodinlaadun analysointi
+Asenna cppcheck
+```
+sudo apt-get install cppcheck
+```
+
+Perustarkastus:
+```
+cppcheck --enable=warning src/ include/
+```
+
+Laajempi tarkastus:
+```
+cppcheck --enable=all --inconclusive --std=c++11 src/ include/
+```
+
+Tulosten tallennus:
+```
+cppcheck src/ include/ 2> cppcheck_results.txt
+```
+
+Nyt tulokset löytyvät cppcheck_results.txt tiedostosta.
 
 Huom. Valitettavasti en ole vielä testannut linuxilla (itse käytän macia), mutta pitäisi toimia. Korjaan tätä myöhemmin tarvittaessa.
