@@ -16,11 +16,9 @@ add_executable(runUnitTests tests/test_main.cpp tests/binary_heap_test.cpp src/b
 target_link_libraries(runUnitTests ${GTEST_LIBRARIES} pthread)
 
 # Lisää kattavuusliput, jos testejä varten rakennetaan
-if(CMAKE_BUILD_TYPE STREQUAL "Coverage")
-    set_target_properties(runUnitTests PROPERTIES
-        COMPILE_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage"
-        LINK_FLAGS "-fprofile-arcs -ftest-coverage"
-    )
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
 endif()
 
 add_test(NAME HeapTest COMMAND runUnitTests)
