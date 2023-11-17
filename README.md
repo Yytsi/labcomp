@@ -1,6 +1,7 @@
 # labcomp
 
-![GHA Workflow badge](https://github.com/Yytsi/labcomp/workflows/CI/badge.svg)
+![GHA Workflow badge](https://github.com/Yytsi/labcomp/workflows/C++%20CI/badge.svg)
+[![codecov](https://codecov.io/gh/Yytsi/labcomp/graph/badge.svg?token=56064HY41I)](https://codecov.io/gh/Yytsi/labcomp)
 
 [Vaatimusmäärittely](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/vaatimusm%C3%A4%C3%A4rittely.md)
 
