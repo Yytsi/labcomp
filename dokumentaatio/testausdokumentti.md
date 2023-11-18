@@ -1,7 +1,6 @@
 # Testausdokumentti
 
-Yksikkötestien kattavuusreportin [löydät täältä](https://app.codecov.io/gh/Yytsi/labcomp/tree/main/src) avaamalla minkä tahansa
-muun tiedoston kuin main.cpp (joka vain käynnistää testit) tai heap_benchmarking.cpp (joka suorittaa suuria testejä lokaalisti).
+Yksikkötestien kattavuusreportin [löydät täältä](https://app.codecov.io/gh/Yytsi/labcomp/tree/main/src).
 
 Yksikkötesteissä on varmistettu, että keko (toistaiseksi vain binäärikeko) toteuttaa toiminnallisuudet oikein.
 Lähinnä satunnaisten lukujen ja mutkikkaiden tapauksien syöttämistä sekä reunatapauksia, joissa esimerkiksi
