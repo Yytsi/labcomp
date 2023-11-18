@@ -1,6 +1,6 @@
 # Käyttöohje
 
-## Testien suorittaminen
+## Yksikkötestien suorittaminen
 
 Aluksi kloonaa repositorio `git clone` komennolla ja mene sen sisään
 
@@ -51,7 +51,23 @@ gcovr -r . --html --html-details -o coverage.html
 
 Avaa coverage.html tiedosto.
 
+## Suorituskykytestit
+Huom: varmista, että olet suorittanut yksikkötesteihin kuuluvat komennot.
+
+Käännä suorituskykytestiohjelma:
+```
+cmake .
+make benchmark
+```
+
+Suorita suorituskykytestiohjelma syötteellä (toistaiseksi ainut):
+```
+./benchmark < benchmark_tests/big.txt
+```
+
 ## Koodinlaadun analysointi
+Huom: varmista, että olet suorittanut yksikkötesteihin kuuluvat komennot.
+
 Asenna cppcheck
 ```
 sudo apt-get install cppcheck
