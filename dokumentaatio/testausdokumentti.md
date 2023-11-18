@@ -11,7 +11,7 @@ Testaukseen on käytetty Google Test kirjastoa ja kattavuuden muodostamiseen [gc
 
 Erikseen on testattu isoja syötteitä (toistaiseksi vain 1) ja mitattu kauan suorituksessa kestää.
 
-Testit (sekä yksikkötestit, että isot testit) voi suorittaa käyttöohjeessa ilmoitetulla tavalla.
+Testien suorittaminen (sekä yksikkötestit, että isot testit) ja kattavuusreportin muodostaminen onnistuvat käyttöohjeessa ilmoitetulla tavalla.
 
 <img width="417" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/f8b89005-4981-4855-947d-8edf13af390d">
 
