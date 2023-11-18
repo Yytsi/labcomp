@@ -13,6 +13,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 add_executable(runUnitTests tests/test_main.cpp tests/binary_heap_test.cpp src/binary_heap.cpp)
+add_executable(benchmark src/heap_benchmarking.cpp)
 target_link_libraries(runUnitTests ${GTEST_LIBRARIES} pthread)
 
 # Lisää kattavuusliput, jos testejä varten rakennetaan
