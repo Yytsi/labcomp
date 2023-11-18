@@ -11,7 +11,7 @@ TEST(BinaryHeapTest, InsertAndExtractMin) {
     heap.insert(1);
     heap.insert(2);
 
-    EXPECT_EQ(heap.getMinimum(), 1);
+    EXPECT_EQ(heap.getMinimum(), 1);  
     heap.deleteMinimum();
     EXPECT_EQ(heap.getMinimum(), 2);
 }
