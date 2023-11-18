@@ -14,3 +14,5 @@ Erikseen on testattu isoja syötteitä (toistaiseksi vain 1) ja mitattu kauan su
 Testit (sekä yksikkötestit, että isot testit) voi suorittaa käyttöohjeessa ilmoitetulla tavalla.
 
 <img width="417" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/f8b89005-4981-4855-947d-8edf13af390d">
+
+<img width="454" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/94652c73-97b2-4c46-ac11-1b25af8ee653">
