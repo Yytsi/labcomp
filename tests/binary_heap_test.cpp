@@ -1,6 +1,9 @@
 // tests/heap_test.cpp
 #include <gtest/gtest.h>
 #include "binary_heap.hpp"
+#include <algorithm>
+#include <stdexcept>
+#include <vector>
 
 TEST(BinaryHeapTest, InsertAndExtractMin) {
     BinaryHeap heap;
@@ -15,8 +18,8 @@ TEST(BinaryHeapTest, InsertAndExtractMin) {
 
 TEST(BinaryHeapTest, HandleEmptyHeap) {
     BinaryHeap heap;
-    EXPECT_THROW(heap.getMinimum(), std::exception);
-    EXPECT_THROW(heap.deleteMinimum(), std::exception);
+    EXPECT_THROW(heap.getMinimum(), exception);
+    EXPECT_THROW(heap.deleteMinimum(), exception);
 }
 
 TEST(BinaryHeapTest, InsertAndDeleteMultiple) {
@@ -75,7 +78,7 @@ TEST(BinaryHeapTest, RepeatedInsertAndDelete) {
         heap.deleteMinimum();
     }
 
-    EXPECT_THROW(heap.getMinimum(), std::exception);
+    EXPECT_THROW(heap.getMinimum(), exception);
 }
 
 TEST(BinaryHeapTest, InsertDuplicateValues) {
@@ -89,7 +92,7 @@ TEST(BinaryHeapTest, InsertDuplicateValues) {
         heap.deleteMinimum();
     }
 
-    EXPECT_THROW(heap.getMinimum(), std::exception);
+    EXPECT_THROW(heap.getMinimum(), exception);
 }
 
 TEST(BinaryHeapTest, InsertInDescendingOrder) {
@@ -106,13 +109,13 @@ TEST(BinaryHeapTest, InsertInDescendingOrder) {
 
 TEST(BinaryHeapTest, RandomInsertAndDelete) {
     BinaryHeap heap;
-    std::vector<int> numbers = {7, 3, 9, 1, 4, 8, 2, 5, 6, 0};
+    vector<int> numbers = {7, 3, 9, 1, 4, 8, 2, 5, 6, 0};
 
     for (int num : numbers) {
         heap.insert(num);
     }
 
-    std::sort(numbers.begin(), numbers.end());
+    sort(numbers.begin(), numbers.end());
     for (int expected : numbers) {
         EXPECT_EQ(heap.getMinimum(), expected);
         heap.deleteMinimum();
@@ -132,7 +135,7 @@ TEST(BinaryHeapTest, RandomTest) {
             heap.deleteMinimum();
             EXPECT_GE(current, last);
             last = current;
-        } catch (std::exception&) {
+        } catch (exception&) {
             break;
         }
     }
@@ -153,5 +156,5 @@ TEST(BinaryHeapTest, InsertNegativeNumbers) {
     EXPECT_EQ(heap.getMinimum(), -1);
     heap.deleteMinimum();
 
-    EXPECT_THROW(heap.getMinimum(), std::exception);
+    EXPECT_THROW(heap.getMinimum(), exception);
 }
