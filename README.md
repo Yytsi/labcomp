@@ -9,7 +9,11 @@
 
 [Toteutusdokumentti](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/toteutusdokumentti.md)
 
+[Testausdokumentti](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/testausdokumentti.md)
+
 ## Viikkoraportit
 [Viikkoraportti 1](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti1.md)
 
 [Viikkoraportti 2](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti2.md)
+
+[Viikkoraportti 3](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti3.md)
