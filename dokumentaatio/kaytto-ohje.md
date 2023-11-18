@@ -1,6 +1,6 @@
 # Käyttöohje
 
-## Yksikkötestien suorittaminen
+## Yksikkötestien suorittaminen ja kattavuusreportti
 
 Aluksi kloonaa repositorio `git clone` komennolla ja mene sen sisään
 
