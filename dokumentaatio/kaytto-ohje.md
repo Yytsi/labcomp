@@ -80,7 +80,7 @@ cppcheck --enable=warning src/ include/
 
 Laajempi tarkastus:
 ```
-cppcheck --enable=all --inconclusive --std=c++11 src/ include/
+cppcheck --enable=all --inconclusive --std=c++11 --suppress=missingIncludeSystem src/ include/
 ```
 
 Tulosten tallennus:
