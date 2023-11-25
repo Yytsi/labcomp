@@ -34,7 +34,7 @@ Suorita testit:
 ./runUnitTests
 ```
 
-Jos saat virheen äskeisestä, niin poista .gcda tiedostot projektista (varmista, että olet projektin juurikansiossa!):
+Jos saat virheitä äskeisen lopussa, niin poista .gcda tiedostot projektista (varmista, että olet projektin juurikansiossa!):
 ```
 find . -name "*.gcda" -delete
 ```
@@ -60,9 +60,14 @@ cmake .
 make benchmark
 ```
 
-Suorita suorituskykytestiohjelma syötteellä (toistaiseksi ainut):
+Luo haluamasi kaltainen testi suorittamalla (käytä python tai python3, mikä onkaan asennettuna):
 ```
-./benchmark < benchmark_tests/big.txt
+python src/generate_custom_test.py
+```
+
+Suorita testisi antamalla seuraavaksi valitsemasi tiedoston nimi äskeisessä kohdassa:
+```
+./benchmark < valitsemasi_testitiedoston_nimi
 ```
 
 ## Koodinlaadun analysointi
