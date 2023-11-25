@@ -2,16 +2,18 @@
 
 Yksikkötestien kattavuusreportin [löydät täältä](https://app.codecov.io/gh/Yytsi/labcomp/tree/main/src).
 
-Yksikkötesteissä on varmistettu, että keko (toistaiseksi vain binäärikeko) toteuttaa toiminnallisuudet oikein.
+Yksikkötesteissä on varmistettu, että keot toteuttavat toiminnallisuudet oikein.
 Lähinnä satunnaisten lukujen ja mutkikkaiden tapauksien syöttämistä sekä reunatapauksia, joissa esimerkiksi
 tyhjästä keosta koitetaan ottaa minimi (jonka pitäisi nostaa virhe).
 
 Testaukseen on käytetty Google Test kirjastoa ja kattavuuden muodostamiseen [gcovr](https://gcovr.com/en/stable/) työkalua.
 
-Erikseen on testattu isoja syötteitä (toistaiseksi vain 1) ja mitattu kauan suorituksessa kestää.
+Erikseen on testattu isoja syötteitä (lisään niistä tarkemmin myöhemmin, vielä ei ole ehtinyt) ja mitattu kauan suorituksessa kestää.
 
 Testien suorittaminen (sekä yksikkötestit, että isot testit) ja kattavuusreportin muodostaminen onnistuvat käyttöohjeessa ilmoitetulla tavalla.
 
-<img width="417" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/f8b89005-4981-4855-947d-8edf13af390d">
+<img width="526" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/bf656605-de67-4118-8af1-b5f0d861110e">
 
-<img width="454" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/94652c73-97b2-4c46-ac11-1b25af8ee653">
+
+## Itse testaus
+Projektin `src` kansiosta löytyy Python- tiedosto (`generate_custom_test.py`), jonka avulla voi luoda C++ suorituskykytestausohjelman käsiteltäväksi haluamansa kokoisen testitiedoston. Sen avulla näkee miten eri keot pärjäävät. Kekojen tehokkuus riippuu syötteen rakenteesta, joten tätä pitää testata myöhemmin kattavemmin.
