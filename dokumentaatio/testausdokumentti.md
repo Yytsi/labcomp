@@ -15,5 +15,7 @@ Testien suorittaminen (sekä yksikkötestit, että isot testit) ja kattavuusrepo
 <img width="526" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/bf656605-de67-4118-8af1-b5f0d861110e">
 
 
-## Itse testaus
+## Suorituskykytestaus
 Projektin `src` kansiosta löytyy Python- tiedosto (`generate_custom_test.py`), jonka avulla voi luoda C++ suorituskykytestausohjelman käsiteltäväksi haluamansa kokoisen testitiedoston. Sen avulla näkee miten eri keot pärjäävät. Kekojen tehokkuus riippuu syötteen rakenteesta, joten tätä pitää testata myöhemmin kattavemmin.
+
+[Käyttöohjeessa ohjeet](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/kaytto-ohje.md) suorituskykytestaukseen
