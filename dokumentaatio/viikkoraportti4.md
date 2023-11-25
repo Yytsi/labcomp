@@ -9,6 +9,8 @@ mutta nyt projektissa on mukana testigeneraattori, jonka avulla voi luoda suuria
 keot pärjää. Cppcheckstylen ilmoittamat koodinlaatupuutteet on otettu huomioon. Yksikkötestit ovat samat
 jokaiselle keolle.
 
+Aloitan tekemään toteutusdokumenttia.
+
 Opin tällä viikolla turvallisien osoittimien (shared_ptr) käytöstä joka helpottaa muistinhallintaa C++:ssa. Myös eri kekojen
 rakenteita tuli opeteltua ja gdb:n (debuggeri) käyttöä tuli harjoiteltua entistä enemmän.
 
