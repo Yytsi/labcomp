@@ -1,31 +1,40 @@
-// tests/heap_test.cpp
 #include <gtest/gtest.h>
-#include "binary_heap.hpp"
+#include "d_ary_heap.hpp"
 #include <algorithm>
 #include <stdexcept>
 #include <vector>
+#include <cstdlib>
 
 using namespace std;
 
-TEST(BinaryHeapTest, InsertAndExtractMin) {
-    BinaryHeap heap;
+class DaryHeapTest : public ::testing::TestWithParam<int> {
+protected:
+    DaryHeap heap;
+    DaryHeapTest() : heap(GetParam()) {}
+};
+
+INSTANTIATE_TEST_SUITE_P(
+    DifferentDValues,
+    DaryHeapTest,
+    ::testing::Values(2, 3, 4, 5, 6, 10)
+);
+
+TEST_P(DaryHeapTest, InsertAndExtractMin) {
     heap.insert(3);
     heap.insert(1);
     heap.insert(2);
 
-    EXPECT_EQ(heap.getMinimum(), 1);  
+    EXPECT_EQ(heap.getMinimum(), 1);
     heap.deleteMinimum();
     EXPECT_EQ(heap.getMinimum(), 2);
 }
 
-TEST(BinaryHeapTest, HandleEmptyHeap) {
-    BinaryHeap heap;
-    EXPECT_THROW(heap.getMinimum(), exception);
-    EXPECT_THROW(heap.deleteMinimum(), exception);
+TEST_P(DaryHeapTest, HandleEmptyHeap) {
+    EXPECT_THROW(heap.getMinimum(), std::exception);
+    EXPECT_THROW(heap.deleteMinimum(), std::exception);
 }
 
-TEST(BinaryHeapTest, InsertAndDeleteMultiple) {
-    BinaryHeap heap;
+TEST_P(DaryHeapTest, InsertAndDeleteMultiple) {
     heap.insert(5);
     heap.insert(3);
     heap.insert(8);
@@ -45,22 +54,23 @@ TEST(BinaryHeapTest, InsertAndDeleteMultiple) {
     heap.deleteMinimum();
 
     EXPECT_EQ(heap.getMinimum(), 8);
+    heap.deleteMinimum();
+
+    EXPECT_THROW(heap.getMinimum(), std::exception);
 }
 
-TEST(BinaryHeapTest, HandleLargeNumberOfElements) {
-    BinaryHeap heap;
-    for (int i = 1000; i >= 1; i--) {
+TEST_P(DaryHeapTest, HandleLargeNumberOfElements) {
+    for (int i = 1000; i >= 1; --i) {
         heap.insert(i);
     }
 
-    for (int i = 1; i <= 1000; i++) {
+    for (int i = 1; i <= 1000; ++i) {
         EXPECT_EQ(heap.getMinimum(), i);
         heap.deleteMinimum();
     }
 }
 
-TEST(BinaryHeapTest, ComplexOperations) {
-    BinaryHeap heap;
+TEST_P(DaryHeapTest, ComplexOperations) {
     heap.insert(10);
     heap.insert(20);
     heap.insert(5);
@@ -73,61 +83,56 @@ TEST(BinaryHeapTest, ComplexOperations) {
     EXPECT_EQ(heap.getMinimum(), 5);
 }
 
-TEST(BinaryHeapTest, RepeatedInsertAndDelete) {
-    BinaryHeap heap;
-    for (int i = 0; i < 10; i++) {
+TEST_P(DaryHeapTest, RepeatedInsertAndDelete) {
+    for (int i = 0; i < 10; ++i) {
         heap.insert(i);
         heap.deleteMinimum();
     }
 
-    EXPECT_THROW(heap.getMinimum(), exception);
+    EXPECT_THROW(heap.getMinimum(), std::exception);
 }
 
-TEST(BinaryHeapTest, InsertDuplicateValues) {
-    BinaryHeap heap;
-    for (int i = 0; i < 5; i++) {
+TEST_P(DaryHeapTest, InsertDuplicateValues) {
+    for (int i = 0; i < 5; ++i) {
         heap.insert(5);
     }
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; ++i) {
         EXPECT_EQ(heap.getMinimum(), 5);
         heap.deleteMinimum();
     }
 
-    EXPECT_THROW(heap.getMinimum(), exception);
+    EXPECT_THROW(heap.getMinimum(), std::exception);
 }
 
-TEST(BinaryHeapTest, InsertInDescendingOrder) {
-    BinaryHeap heap;
-    for (int i = 10; i > 0; i--) {
+TEST_P(DaryHeapTest, InsertInDescendingOrder) {
+    for (int i = 10; i > 0; --i) {
         heap.insert(i);
     }
 
-    for (int i = 1; i <= 10; i++) {
+    for (int i = 1; i <= 10; ++i) {
         EXPECT_EQ(heap.getMinimum(), i);
         heap.deleteMinimum();
     }
 }
 
-TEST(BinaryHeapTest, RandomInsertAndDelete) {
-    BinaryHeap heap;
-    vector<int> numbers = {7, 3, 9, 1, 4, 8, 2, 5, 6, 0};
+TEST_P(DaryHeapTest, RandomInsertAndDelete) {
+    std::vector<int> numbers = {7, 3, 9, 1, 4, 8, 2, 5, 6, 0};
 
     for (int num : numbers) {
         heap.insert(num);
     }
 
-    sort(numbers.begin(), numbers.end());
+    std::sort(numbers.begin(), numbers.end());
     for (int expected : numbers) {
         EXPECT_EQ(heap.getMinimum(), expected);
         heap.deleteMinimum();
     }
 }
 
-TEST(BinaryHeapTest, RandomTest) {
-    BinaryHeap heap;
-    for (int i = 0; i < 10000; i++) {
-        heap.insert(rand() % 10000);
+TEST_P(DaryHeapTest, RandomTest) {
+    for (int i = 0; i < 10000; ++i) {
+        heap.insert(std::rand() % 10000);
     }
 
     int last = -1;
@@ -137,14 +142,13 @@ TEST(BinaryHeapTest, RandomTest) {
             heap.deleteMinimum();
             EXPECT_GE(current, last);
             last = current;
-        } catch (exception&) {
+        } catch (std::exception&) {
             break;
         }
     }
 }
 
-TEST(BinaryHeapTest, InsertNegativeNumbers) {
-    BinaryHeap heap;
+TEST_P(DaryHeapTest, InsertNegativeNumbers) {
     heap.insert(-1);
     heap.insert(-3);
     heap.insert(-2);
@@ -158,5 +162,5 @@ TEST(BinaryHeapTest, InsertNegativeNumbers) {
     EXPECT_EQ(heap.getMinimum(), -1);
     heap.deleteMinimum();
 
-    EXPECT_THROW(heap.getMinimum(), exception);
+    EXPECT_THROW(heap.getMinimum(), std::exception);
 }

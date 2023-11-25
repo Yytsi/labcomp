@@ -1,14 +1,14 @@
 // tests/heap_test.cpp
 #include <gtest/gtest.h>
-#include "binary_heap.hpp"
+#include "pairing_heap.hpp"
 #include <algorithm>
 #include <stdexcept>
 #include <vector>
 
 using namespace std;
 
-TEST(BinaryHeapTest, InsertAndExtractMin) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, InsertAndExtractMin) {
+    PairingHeap heap;
     heap.insert(3);
     heap.insert(1);
     heap.insert(2);
@@ -18,14 +18,14 @@ TEST(BinaryHeapTest, InsertAndExtractMin) {
     EXPECT_EQ(heap.getMinimum(), 2);
 }
 
-TEST(BinaryHeapTest, HandleEmptyHeap) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, HandleEmptyHeap) {
+    PairingHeap heap;
     EXPECT_THROW(heap.getMinimum(), exception);
     EXPECT_THROW(heap.deleteMinimum(), exception);
 }
 
-TEST(BinaryHeapTest, InsertAndDeleteMultiple) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, InsertAndDeleteMultiple) {
+    PairingHeap heap;
     heap.insert(5);
     heap.insert(3);
     heap.insert(8);
@@ -47,8 +47,8 @@ TEST(BinaryHeapTest, InsertAndDeleteMultiple) {
     EXPECT_EQ(heap.getMinimum(), 8);
 }
 
-TEST(BinaryHeapTest, HandleLargeNumberOfElements) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, HandleLargeNumberOfElements) {
+    PairingHeap heap;
     for (int i = 1000; i >= 1; i--) {
         heap.insert(i);
     }
@@ -59,8 +59,8 @@ TEST(BinaryHeapTest, HandleLargeNumberOfElements) {
     }
 }
 
-TEST(BinaryHeapTest, ComplexOperations) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, ComplexOperations) {
+    PairingHeap heap;
     heap.insert(10);
     heap.insert(20);
     heap.insert(5);
@@ -73,8 +73,8 @@ TEST(BinaryHeapTest, ComplexOperations) {
     EXPECT_EQ(heap.getMinimum(), 5);
 }
 
-TEST(BinaryHeapTest, RepeatedInsertAndDelete) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, RepeatedInsertAndDelete) {
+    PairingHeap heap;
     for (int i = 0; i < 10; i++) {
         heap.insert(i);
         heap.deleteMinimum();
@@ -83,8 +83,8 @@ TEST(BinaryHeapTest, RepeatedInsertAndDelete) {
     EXPECT_THROW(heap.getMinimum(), exception);
 }
 
-TEST(BinaryHeapTest, InsertDuplicateValues) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, InsertDuplicateValues) {
+    PairingHeap heap;
     for (int i = 0; i < 5; i++) {
         heap.insert(5);
     }
@@ -97,8 +97,8 @@ TEST(BinaryHeapTest, InsertDuplicateValues) {
     EXPECT_THROW(heap.getMinimum(), exception);
 }
 
-TEST(BinaryHeapTest, InsertInDescendingOrder) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, InsertInDescendingOrder) {
+    PairingHeap heap;
     for (int i = 10; i > 0; i--) {
         heap.insert(i);
     }
@@ -109,8 +109,8 @@ TEST(BinaryHeapTest, InsertInDescendingOrder) {
     }
 }
 
-TEST(BinaryHeapTest, RandomInsertAndDelete) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, RandomInsertAndDelete) {
+    PairingHeap heap;
     vector<int> numbers = {7, 3, 9, 1, 4, 8, 2, 5, 6, 0};
 
     for (int num : numbers) {
@@ -124,8 +124,8 @@ TEST(BinaryHeapTest, RandomInsertAndDelete) {
     }
 }
 
-TEST(BinaryHeapTest, RandomTest) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, RandomTest) {
+    PairingHeap heap;
     for (int i = 0; i < 10000; i++) {
         heap.insert(rand() % 10000);
     }
@@ -143,8 +143,8 @@ TEST(BinaryHeapTest, RandomTest) {
     }
 }
 
-TEST(BinaryHeapTest, InsertNegativeNumbers) {
-    BinaryHeap heap;
+TEST(PairingHeapTest, InsertNegativeNumbers) {
+    PairingHeap heap;
     heap.insert(-1);
     heap.insert(-3);
     heap.insert(-2);

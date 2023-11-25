@@ -1,47 +1,44 @@
 #include "../include/binary_heap.hpp"
 #include <stdexcept>
 
-using namespace std;
-
-// Using a standard implementation, will switch to pointers later
-
 void BinaryHeap::insert(int val) {
   heap.push_back(val);
-  heapifyUp(heap.size() - 1); // Guarantee heap structure
+  heapifyUp(heap.size() - 1); // Maintain heap order after insertion
 }
 
-int BinaryHeap::getMinimum() {
-  if (heap.empty()) throw runtime_error("Tyhjästä keosta otettu arvo.");
+int BinaryHeap::getMinimum() const {
+  if (heap.empty()) throw std::runtime_error("Tyhjästä binäärikeosta minimi.");
   return heap[0];
 }
 
 void BinaryHeap::deleteMinimum() {
-  if (heap.empty()) throw runtime_error("Tyhjästä keosta poisto.");
+  if (heap.empty()) throw std::runtime_error("Tyhjästä binäärikeosta poisto.");
   heap[0] = heap.back();
   heap.pop_back();
-  if (heap.size()) heapifyDown(0); // Guarantee heap structure by heapifying down from root
+  if (!heap.empty()) heapifyDown(0); // Maintain heap order after deletion
 }
 
 void BinaryHeap::heapifyDown(int idx) {
-  // find smallest children and swap with it if necessary
   int smallest = idx;
+  int leftChild = 2 * idx + 1;
+  int rightChild = 2 * idx + 2;
 
-  int leftChild = 2*idx+1;
-  int rightChild = 2*idx+2;
+  if (leftChild < static_cast<int>(heap.size()) && heap[leftChild] < heap[smallest]) {
+    smallest = leftChild;
+  }
+  if (rightChild < static_cast<int>(heap.size()) && heap[rightChild] < heap[smallest]) {
+    smallest = rightChild;
+  }
 
-  if (leftChild < (int)heap.size() && heap[leftChild] < heap[smallest]) smallest = leftChild;
-  if (rightChild < (int)heap.size() && heap[rightChild] < heap[smallest]) smallest = rightChild;
-
-  if (idx < smallest) {
-    swap(heap[idx], heap[smallest]);
+  if (smallest != idx) {
+    std::swap(heap[idx], heap[smallest]);
     heapifyDown(smallest);
   }
 }
 
 void BinaryHeap::heapifyUp(int idx) {
-  // As long as parent is bigger than this, swap with it
-  while (idx && heap[idx] < heap[(idx - 1) / 2]) {
-    swap(heap[idx], heap[(idx - 1) / 2]);
+  while (idx > 0 && heap[idx] < heap[(idx - 1) / 2]) {
+    std::swap(heap[idx], heap[(idx - 1) / 2]);
     idx = (idx - 1) / 2;
   }
 }
