@@ -52,7 +52,7 @@ gcovr -r . --html --html-details -o coverage.html
 Avaa coverage.html tiedosto.
 
 ## Suorituskykytestit
-Huom: varmista, että olet suorittanut yksikkötesteihin kuuluvat komennot.
+Huom: varmista, että olet suorittanut yksikkötesteihin kuuluvat komennot. Suorita tämä juuressa.
 
 Käännä suorituskykytestiohjelma:
 ```
