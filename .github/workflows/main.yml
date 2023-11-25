@@ -30,7 +30,7 @@ jobs:
         make test
 
     - name: Generate Coverage Report for Codecov
-      run: gcovr -r . --xml -o coverage.xml -e src/main.cpp -e src/heap_benchmarking.cpp -e tests/binary_heap_test.cpp
+      run: gcovr -r . --xml -o coverage.xml -e src/main.cpp -e src/heap_benchmarking.cpp -e tests/binary_heap_test.cpp tests/binomial_heap_test.cpp tests/pairing_heap_test.cpp tests/d_ary_heap_test.cpp
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2
