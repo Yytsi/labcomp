@@ -1,5 +1,7 @@
 # labcomp
 
+Projekti vertailee neljää eri (binääri-, binomaali-, paritus-, D-ary-) kekoa suorituskyvyn osalta eri syöterakenteilla. Käytetty kieli on C++.
+
 ![GHA Workflow badge](https://github.com/Yytsi/labcomp/workflows/C++%20CI/badge.svg)
 [![codecov](https://codecov.io/gh/Yytsi/labcomp/graph/badge.svg?token=56064HY41I)](https://codecov.io/gh/Yytsi/labcomp)
 
