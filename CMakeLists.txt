@@ -23,6 +23,3 @@ endif()
 add_test(NAME HeapTest COMMAND runUnitTests)
 
 add_executable(benchmark src/heap_benchmarking.cpp)
-
-# Lisää pinon koko vain heap_benchmark-tiedostolle
-set_target_properties(benchmark PROPERTIES LINK_FLAGS "-Wl,-stack_size -Wl,0x10000000")
