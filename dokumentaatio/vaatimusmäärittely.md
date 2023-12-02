@@ -21,7 +21,7 @@ Alustavasti Dijkstran algoritmin tapauksessa tulen antamaan verkkoja.
 
 ## Aikavaativuudet
 Kuvassa Operation sarakkeen Binary vastaa binäärikekoa, Binomial binomikekoa ja Pairing puolestaan paritettua kekoa.
-Paritetusta keosta poisto ja binomiaalisen kekoon lisäys [amortisoituvat](https://stackoverflow.com/questions/200384/what-is-constant-amortized-time).
+Paritetusta keosta poisto ja binomiaalisen kekoon lisäys (tosin binomiaalisen keon tapauksessa vain ensimmäisen lisäyksen jälkeen ketjussa olevat lisäykset) [amortisoituvat](https://stackoverflow.com/questions/200384/what-is-constant-amortized-time).
 
 <img width="365" alt="image" src="https://github.com/Yytsi/labcomp/assets/20990023/dfaef998-070e-41d2-8e31-82f7ea112199">
 
