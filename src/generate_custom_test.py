@@ -38,16 +38,23 @@ def generate_add_and_get_test_file(filename, initial_adds, num_operations, max_v
         file.write(f'{len(operations)}\n')
         file.write('\n'.join(operations))
 
-def generate_add_and_remove_test_file(filename, num_operations, max_value):
+def generate_add_and_remove_test_file(filename, num_operations, max_value, max_heap_size):
     with open(filename, 'w') as file:
         heap_size = 0
         operations = []
         for _ in range(num_operations):
-            if heap_size == 0 or random.choice([True, False]):
+            if heap_size == 0:  # Prevent removal from an empty heap
+                operation = 'a'
+            elif heap_size == max_heap_size:  # Prevent adding beyond max heap size
+                operation = 'p'
+            else:
+                operation = random.choice(['a', 'p'])
+
+            if operation == 'a':
                 value = random.randint(1, max_value+1)
                 operations.append(f'a {value}')
                 heap_size += 1
-            else:
+            elif operation == 'p':
                 operations.append('p')
                 heap_size -= 1
 
@@ -74,6 +81,7 @@ elif test_file_type == 3:
     initial_adds = int(input("Anna alustavien lisäysoperaatioiden määrä: "))
     generate_add_and_get_test_file(filename, initial_adds, num_operations, max_value)
 elif test_file_type == 4:
-    generate_add_and_remove_test_file(filename, num_operations, max_value)
+    max_heap_size = int(input("Anna keon maksimikoko: "))
+    generate_add_and_remove_test_file(filename, num_operations, max_value, max_heap_size)
 else:
     print("Virheellinen syöte. Anna numero väliltä 1-4.")
