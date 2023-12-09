@@ -23,3 +23,5 @@ Projekti vertailee neljää eri (binääri-, binomaali-, paritus-, D-ary-) kekoa
 [Viikkoraportti 4](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti4.md)
 
 [Viikkoraportti 5](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti5.md)
+
+[Viikkoraportti 6](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/viikkoraportti6.md)
