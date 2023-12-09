@@ -16,6 +16,7 @@ Testien suorittaminen (sekä yksikkötestit, että isot testit) ja kattavuusrepo
 
 
 ## Suorituskykytestaus
+### Satunnaiset operaatiot
 Kekoja on testattu toistaiseksi satunnaisilla syötteillä (src/generate_custom_test.py). Tässä tuloksia nopeuksista (suoritettu Macbook air 13 M1 kannettavalla):
 
 
@@ -48,5 +49,65 @@ Kekoja on testattu toistaiseksi satunnaisilla syötteillä (src/generate_custom_
         BinomialHeap: 5.39302 sekuntia
 
 Huomioi, ettei binomiaalikekoa ole otettu suurempiin (200M ja 600M) testeihin mukaan, koska sen suoritusaika on liian pitkä. Kuten 20 miljoonan operaation testi näyttää, binomiaalikeolla kestää moninkertainen aika muihin verrattuna.
+
+### Vain lisäysoperaatiot
+    
+    1 M only additions
+        Max: 100,000,000
+        BinaryHeap: 0.055303 sekuntia
+        DaryHeap: 0.047484 sekuntia
+        PairingHeap: 0.168849 sekuntia
+        BinomialHeap: 0.723102 sekuntia
+    
+    5 M only additions
+        Max: 100,000,000
+        BinaryHeap: 0.292657 sekuntia
+        DaryHeap: 0.251329 sekuntia
+        BinomialHeap: 3.66029 sekuntia
+    
+    10 M only additions
+        Max: 100,000,000
+        BinaryHeap: 0.586065 sekuntia
+        DaryHeap: 0.506172 sekuntia
+        BinomialHeap: 7.54771 sekuntia
+
+Parituskekoa ei otettu viimeiseen mukaan muistin puutteen takia. Yritän tätä saada myöhemmin säädettyä toisella koneella, koska macilla on hankala muuttaa pinon muistirajaa.
+
+![vertaus_add](https://github.com/Yytsi/labcomp/assets/20990023/3797d16f-3f29-4350-b660-a500ea2ef7d0)
+
+### Sekoitetut lisäys ja poisto
+
+    1 M add and delete
+        Max: 100,000,000
+        BinaryHeap: 0.123254 sekuntia
+        DaryHeap: 0.132351 sekuntia
+        PairingHeap: 0.246787 sekuntia
+        BinomialHeap: 1.1159 sekuntia
+    
+    5 M add and delete
+        Max: 100,000,000
+        BinaryHeap: 0.71377 sekuntia
+        DaryHeap: 0.750591 sekuntia
+        PairingHeap: 1.23873 sekuntia
+        BinomialHeap: 11.1068 sekuntia
+    
+    10 M add and delete
+        Max: 100,000,000
+        BinaryHeap: 1.47577 sekuntia
+        DaryHeap: 1.56003 sekuntia
+        PairingHeap: 2.54455 sekuntia
+        BinomialHeap: 19.8731 sekuntia
+    
+    50 M add and delete
+        Max: 100,000,000
+        BinaryHeap: 7.71747 sekuntia
+        DaryHeap: 8.00719 sekuntia
+        PairingHeap: 12.6839 sekuntia
+
+Binomiaalikekoa ei otettu viimeiseen testiin mukaan valtavan suoritusajan vuoksi. Lisäksi näissä testeissä keon koko ei ikinä ylitä 1 miljoonaa arvoa.
+
+![vertaus_add_delete](https://github.com/Yytsi/labcomp/assets/20990023/362e5f59-cfb2-49df-9018-a10ce6fd1872)
+
+
 
 [Käyttöohjeessa ohjeet](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/kaytto-ohje.md) suorituskykytestaukseen
