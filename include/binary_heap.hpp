@@ -8,6 +8,6 @@ public:
   void insert(int val);
   int getMinimum() const;
   void deleteMinimum();
-  void heapifyDown(int idx);
-  void heapifyUp(int idx);
+  void heapifyDown(int index);
+  void heapifyUp(int index);
 };
