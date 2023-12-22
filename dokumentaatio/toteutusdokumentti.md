@@ -36,7 +36,7 @@ Projektin kokoamiseen käytettävä `CMakeLists.txt`.
 | Keko          | Insert             | getMin | deleteMin          | Tilavaativuus (Insert, getMin, deleteMin) |
 |---------------|--------------------|--------|--------------------|------------------------------------------|
 | Binäärikeko   | O(log n)           | O(1)   | O(log n)           | O(1), O(1), O(1)                          |
-| Binomiaalikeko| O(log n) amortisoitu | O(log n) | O(log n)       | O(1), O(1), O(1)                          |
+| Binomiaalikeko| O(log n) amortisoitu | O(1) | O(log n)       | O(1), O(1), O(1)                          |
 | D-ary keko    | O(log n)           | O(1)   | O(log n)           | O(1), O(1), O(1)                          |
 | Parituskeko   | Amortisoitu O(1)   | O(1)   | Amortisoitu O(log n) | O(1), O(1), O(log n)                    |
 
