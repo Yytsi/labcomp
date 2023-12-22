@@ -17,6 +17,7 @@ public:
 class BinomialHeap {
 public:
     std::list<std::shared_ptr<BinomialHeapNode>> roots;
+    std::shared_ptr<BinomialHeapNode> minNode;
 
     std::shared_ptr<BinomialHeapNode> mergeTrees(std::shared_ptr<BinomialHeapNode> a, std::shared_ptr<BinomialHeapNode> b);
     void merge(BinomialHeap& other);
@@ -24,6 +25,7 @@ public:
     void insert(int value);
     int getMinimum();
     void deleteMinimum();
+    void updateMinNode();
 
     BinomialHeap() = default;
     ~BinomialHeap() = default;

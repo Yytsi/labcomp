@@ -5,7 +5,7 @@ private:
   std::vector<int> heap;
 
 public:
-  void insert(int val);
+  void insert(int value);
   int getMinimum() const;
   void deleteMinimum();
   void heapifyDown(int index);
