@@ -16,6 +16,8 @@ Testien suorittaminen (sekä yksikkötestit, että isot testit) ja kattavuusrepo
 
 
 ## Suorituskykytestaus
+Tärkeä huomio, seuraavat testit, joissa binomiaalinen keko on mukana on tehty versiolla, jossa minimin hakeminen vei aikaa O(log n). Vaihdoin sen sittemmin O(1) toteutukseen, mutta eroa ei juurikaan ole, koska se lisäsi vakiokertoimen muihin operaatioihin (joissa kyllä pysyi omat vaativuudet samoina). Mainittakoon myös, että valitsin D-ary kekojen asteluvuksi D = 4, eli neljä lasta enintään solmua kohti.
+
 ### Satunnaiset operaatiot
 Kekoja on testattu toistaiseksi satunnaisilla syötteillä (src/generate_custom_test.py). Tässä tuloksia nopeuksista (suoritettu Macbook air 13 M1 kannettavalla):
 
@@ -108,6 +110,7 @@ Binomiaalikekoa ei otettu viimeiseen testiin mukaan valtavan suoritusajan vuoksi
 
 ![vertaus_add_delete](https://github.com/Yytsi/labcomp/assets/20990023/362e5f59-cfb2-49df-9018-a10ce6fd1872)
 
-
+## Johtopäätelmät
+Binäärikeko ja D-ary-keko ovat selkeitä kilpailijoita kun taas binomiaali- sekä parituskeko eivät niin loista näiden primitiivisten operaatioiden (lisää, hae minimi, poista minimi) kanssa.
 
 [Käyttöohjeessa ohjeet](https://github.com/Yytsi/labcomp/blob/main/dokumentaatio/kaytto-ohje.md) suorituskykytestaukseen
