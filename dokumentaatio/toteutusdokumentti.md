@@ -1,7 +1,7 @@
 # (Ei valmis) Toteutusdokumentti
 
 ChatGPT:tä (3.5) on käytetty toistaiseksi CMakeLists.txt luonnissa (projektin rakennus),
-github actions tiedoston konfiguroimiseen ja testien laadun varmistamiseen. Muuhun ei ole.
+github actions tiedoston konfiguroimiseen ja testien laadun varmistamiseen. Viimeiseksi myös käytetty kommenttien uudelleensanoittamiseen hankalemmissa tapauksissa. Muuhun ei ole.
 
 ## Ohjelman yleisrakenne
 ### Lähdekoodi (`src` kansio)
